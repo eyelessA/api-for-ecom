@@ -17,6 +17,10 @@ return new class extends Migration
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users');
+            $table->unsignedBigInteger('payment_method_id');
+            $table->foreign('payment_method_id')
+                ->references('id')
+                ->on('payment_methods');
             $table->enum('status', ['На оплату', 'Оплачен', 'Отменен'])->default('На оплату');
             $table->timestamps();
         });

@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\PaymentMethod;
 use App\Models\Product;
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Database\Factories\ProductFactory;
 use Illuminate\Database\Seeder;
 
@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-         User::factory(10)->create();
+        User::factory(10)->create();
 
         User::factory()->create([
             'name' => 'Test User',
@@ -33,6 +33,14 @@ class DatabaseSeeder extends Seeder
                 'name' => $key,
                 'price' => $product['price'],
                 'quantity' => $product['quantity'],
+            ]);
+        }
+
+        $paymentMethods = ['ya.ru', 'tinkoff.com', 'sberbank.ru'];
+
+        foreach ($paymentMethods as $method) {
+            PaymentMethod::create([
+                'name' => $method,
             ]);
         }
     }
