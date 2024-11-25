@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\PaymentMethodController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +16,6 @@ Route::prefix('products')->group(function () {
     Route::get('/', [CartController::class, 'getProducts']);
 });
 
+Route::prefix('orders')->group(function () {
+    Route::post('/pay', [PaymentMethodController::class, 'pay']);
+});
