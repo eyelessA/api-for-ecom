@@ -18,4 +18,6 @@ Route::prefix('products')->group(function () {
 
 Route::prefix('orders')->group(function () {
     Route::post('/pay', [PaymentMethodController::class, 'pay']);
+    Route::get('/pay/{payment_method}', [PaymentMethodController::class, 'changeStatus']);
+    Route::get('/', [PaymentMethodController::class, 'orders']);
 });
