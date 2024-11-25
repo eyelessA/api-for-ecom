@@ -26,7 +26,7 @@ class DeleteProductFromCartService
                 ->where('product_id', '=', $data['product_id'])
                 ->first();
 
-            $cartProduct->quantity -= $data['product_id'];
+            $cartProduct->quantity -= $data['quantity'];
             $cartProduct->save();
 
             if ($cartProduct->quantity < 1) {
