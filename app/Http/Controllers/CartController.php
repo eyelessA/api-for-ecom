@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CartRequest;
-use App\Http\Requests\ProductRequest;
+use App\Http\Requests\Cart\CartRequest;
+use App\Http\Requests\Product\ProductRequest;
 use App\Http\Resources\Product\ProductResource;
 use App\Models\Product;
 use App\Services\Cart\AddProductToCartService;
